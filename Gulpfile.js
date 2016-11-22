@@ -89,7 +89,7 @@ gulp.task('watch', function() {
 });
 
 /* Gulp task definitions */
-gulp.task('default', ['buildApp', 'lint', 'watch']);
+gulp.task('default', ['buildApp']);
 
 /* Gulp deploy task definitions */
 gulp.task('deploy', ['buildApp']);
