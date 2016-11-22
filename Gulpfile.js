@@ -8,7 +8,7 @@ var gulp = require('gulp');
 	plumber = require('gulp-plumber'),
 	sass = require('gulp-sass'),
 	rename = require('gulp-rename'),
-	eslint = require('gulp-eslint'),
+	//eslint = require('gulp-eslint'),
 	nodemon = require('gulp-nodemon');
 
 /* Variables */
@@ -60,7 +60,7 @@ gulp.task('buildCSS', function() {
 		.pipe(livereload());
 });
 
-gulp.task('lint', function() {
+/*gulp.task('lint', function() {
 	return gulp.src([paths.pathsToLint[0],paths.pathsToLint[1], '!node_modules/**', '!bower_components/**', '!client/dist/**', '!client/app/assets/images/**'])
 		// eslint() attaches the lint output to the "eslint" property
 		// of the file object so it can be used by other modules.
@@ -71,7 +71,7 @@ gulp.task('lint', function() {
 		// To have the process exit with an error code (1) on
 		// lint error, return the stream and pipe to failAfterError last.
 		.pipe(eslint.failAfterError());
-});
+});*/
 
 gulp.src(['client/app/assets/**/*']).pipe(gulp.dest('client/dist'));
 
@@ -84,7 +84,7 @@ gulp.task('start:server', function() {
 /* Gulp watches */
 gulp.task('watch', function() {
 	livereload.listen();
-	gulp.watch([paths.templates, paths.pathsToLint], ['buildJS', 'lint']);
+	gulp.watch([paths.templates, paths.pathsToLint], ['buildJS']);
 	gulp.watch([paths.scss], ['buildCSS']);
 });
 
@@ -95,4 +95,4 @@ gulp.task('default', ['buildApp', 'lint', 'watch']);
 gulp.task('deploy', ['buildApp']);
 
 /* Gulp serve task definitions */
-gulp.task('serve', ['buildApp', 'start:server', 'lint', 'watch']);
+gulp.task('serve', ['buildApp', 'start:server', 'watch']);
