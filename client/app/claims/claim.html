@@ -1,0 +1,61 @@
+<div id="container" layout="column" layout-fill>
+	<section layout="row" flex>
+		<section layout="column" flex class="sectionChartContent">
+			<div layout="column" flex="100" layout-padding>
+				<md-content id="containerHomeRowFirst" class="sectionChartRow" layout="row" layout-xs="column" layout-padding flex="100">
+					<div class="panel sectionChartItem" layout="column" flex="50">
+						<canvas id="pie" class="chart chart-pie" chart-data="data" chart-labels="labels" chart-click='clickOnChart'></canvas>
+					</div>
+					<div class="panel sectionChartItem" layout="column" flex="50">
+						<table class="slds-table slds-table--bordered slds-table--cell-buffer">
+							<thead>
+								<tr class="slds-text-title--caps">
+									<th scope="col">
+										<div class="slds-truncate" title="Claim Number">Claim Number</div>
+									</th>
+									<th scope="col">
+										<div class="slds-truncate" title="Accident Type">Accident Type</div>
+									</th>
+									<th scope="col">
+										<div class="slds-truncate" title="Policy Number">Policy Number</div>
+									</th>
+									<th scope="col">
+										<div class="slds-truncate" title="Vin">Vin</div>
+									</th>
+									<th scope="col">
+										<div class="slds-truncate" title="Status">Status</div>
+									</th>
+									<th scope="col">
+										<div class="slds-truncate" title="Amount">Amount</div>
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat = 'claim in claimData'>
+									<th scope="row" data-label="Claim Number">
+										<div class="slds-truncate">{{claim.claim_no}}</div>
+									</th>
+									<td data-label="Accident Type">
+										<div class="slds-truncate">{{claim.accident.type}}</div>
+									</td>
+									<td data-label="Policy Number">
+										<div class="slds-truncate">{{claim.policy}}</div>
+									</td>
+									<td data-label="Vin">
+										<div class="slds-truncate">{{claim.vehicle.vin}}</div>
+									</td>
+									<td data-label="Status">
+										<div class="slds-truncate">{{claim.status.code}}</div>
+									</td>
+									<td data-label="Amount">
+										<div class="slds-truncate">{{claim.claim_amount}}</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</md-content>
+			</div>
+		</section>
+	</section>
+</div>
